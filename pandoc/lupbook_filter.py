@@ -113,7 +113,7 @@ class LupbookComponent:
 
                 with div(cls = "pe-2"):
                     with button(id = f"{self.prefix_id}-testing-btn",
-                                cls = "lupbook-testing-btn btn btn-light collapsed d-none",
+                                cls = "lupbook-testing-btn btn btn-color collapsed d-none",
                                 data_bs_target = f"#{self.prefix_id}-testing",
                                 data_bs_toggle = "collapse", type = "button"):
                         i(cls = "bi bi-chevron-up")

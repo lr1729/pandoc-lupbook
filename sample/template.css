@@ -43,3 +43,24 @@ main > section > h1:first-of-type {
         overflow-y: auto;
     }
 }
+
+/* Fix badge color in dark mode */
+.badge {
+  color: unset;
+}
+
+/* Custom button color class to handle color modes */
+.btn-color {
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+  border: none;
+}
+
+.btn-color:hover,
+.btn-color:focus {
+  background-color: var(--bs-secondary-bg);
+}
+
+.btn-color:active {
+  background-color: var(--bs-border-color);
+}

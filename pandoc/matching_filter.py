@@ -35,7 +35,7 @@ class LupbookMatching(lupbook_filter.LupbookComponent):
             "cls": "matching-choice bg-body border rounded m-2 mb-0 p-2 d-flex",
         }
         with div(**div_attrs):
-            span(str(i + 1), cls = "badge text-bg-secondary me-2")
+            span(str(i + 1), cls = "badge bg-body-secondary me-2")
             text = choice['text']
             formatted_text = panflute.convert_text(text, output_format = 'html')
             raw(formatted_text)
@@ -80,5 +80,5 @@ class LupbookMatching(lupbook_filter.LupbookComponent):
                     choice["feedback"], output_format = 'html')
             with div(id = f"{self.prefix_id}-feedback-{choice['id']}",
                      cls = "d-flex align-items-center matching-feedback-item m-1 p-2 border-start border-5 d-none"):
-                span(str(i + 1), cls="badge text-bg-secondary me-2")
+                span(str(i + 1), cls="badge bg-body-secondary me-2")
                 div(raw(formatted_text))

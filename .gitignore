@@ -3,3 +3,4 @@ __pycache__/
 build/
 .vscode/
 node_modules/
+.venv/

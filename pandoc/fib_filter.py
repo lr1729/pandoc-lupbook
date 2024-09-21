@@ -80,5 +80,5 @@ class LupbookFIB(lupbook_filter.LupbookComponent):
             with div(id=f"{self.prefix_id}-feedback-{i}",
                      cls="d-flex align-items-center fib-feedback-item m-1 p-2 border-start border-5 d-none"):
                 span(str(i + 1),
-                     cls = "badge text-bg-light fw-medium me-1 p-1")
+                     cls = "badge bg-body-secondary fw-medium me-1 p-1")
                 div(raw(formatted_text))

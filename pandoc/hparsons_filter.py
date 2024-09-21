@@ -43,10 +43,10 @@ class LupbookHParsons(parsons_filter.LupbookParsons):
                     # of 1 fragment each.
                     with div(id = f"{self.prefix_id}-frags-{i}",
                              cls = "parsons-frags-group position-relative"
-                             " rounded bg-white"):
+                             " rounded bg-body"):
                         self._gen_frag_block(frag, "my-2 mx-1", i, i)
 
             div("...and drop them here (click to remove)",
                 cls = "ps-2 pt-2 small fst-italic text-secondary")
             div(id = f"{self.prefix_id}-answers",
-                cls = "parsons-answers bg-light border d-flex flex-row flex-wrap")
+                cls = "parsons-answers bg-body border d-flex flex-row flex-wrap")

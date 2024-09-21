@@ -122,15 +122,15 @@ class LupBookActivity {
     switch (progressState) {
       case LupBookActivity.ProgressStatus.CLEAR:
         item.classList.remove("bg-success", "bg-danger");
-        item.classList.add("bg-light");
+        item.classList.add("bg-body");
         break;
       case LupBookActivity.ProgressStatus.PENDING:
-        item.classList.remove("bg-light");
+        item.classList.remove("bg-body");
         item.classList.add("progress-bar-striped", "progress-bar-animated");
         break;
       case LupBookActivity.ProgressStatus.SUCCESS:
         item.classList.remove(
-          "bg-light",
+          "bg-body",
           "progress-bar-striped",
           "progress-bar-animated"
         );
@@ -138,7 +138,7 @@ class LupBookActivity {
         break;
       case LupBookActivity.ProgressStatus.FAILURE:
         item.classList.remove(
-          "bg-light",
+          "bg-body",
           "progress-bar-striped",
           "progress-bar-animated"
         );

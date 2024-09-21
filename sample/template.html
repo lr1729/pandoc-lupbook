@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$ data-bs-theme="light">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -28,9 +28,19 @@ $endif$
   <script src="$lbdir$/node_modules/codemirror/lib/codemirror.js"></script>
   <script src="$lbdir$/node_modules/codemirror/addon/edit/matchbrackets.js"></script>
   <script src="$lbdir$/node_modules/codemirror/mode/clike/clike.js"></script>
+  <!-- CodeMirror Themes -->
+  <link rel="stylesheet" href="$lbdir$/node_modules/codemirror/theme/ayu-dark.css"/>
+  <link rel="stylesheet" href="$lbdir$/node_modules/codemirror/theme/darcula.css"/>
+  <link rel="stylesheet" href="$lbdir$/node_modules/codemirror/theme/nord.css"/>
+  <link rel="stylesheet" href="$lbdir$/node_modules/codemirror/theme/eclipse.css"/>
+  <link rel="stylesheet" href="$lbdir$/node_modules/codemirror/theme/material.css"/>
+  <link rel="stylesheet" href="$lbdir$/node_modules/codemirror/theme/material-darker.css"/>
+  <link rel="stylesheet" href="$lbdir$/node_modules/codemirror/theme/monokai.css"/>
   <!-- UI toolkit (Bootstrap) -->
   <link rel="stylesheet" href="$lbdir$/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="$lbdir$/node_modules/bootstrap-icons/font/bootstrap-icons.min.css"/>
+  <!-- Depends on Popper for dropdowns, see docs -->
+  <script src="$lbdir$/node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
   <script src="$lbdir$/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
   <!-- LupBook components -->
@@ -110,17 +120,35 @@ $main-toc$
         </div>
         <div class="offcanvas-body p-4 pt-0">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <!-- Terminal button -->
             <li class="nav-item">
               <button class="btn btn-link nav-link" type="button" data-bs-toggle="modal" data-bs-target="#lbvm-terminal-modal">
                 <i class="bi bi-terminal"></i>
                 <span class="ms-2">Show terminal</span>
               </button>
             </li>
+            <!-- Theme toggle button -->
             <li class="nav-item">
               <button id="theme-toggle" class="btn btn-link nav-link" type="button">
                 <i class="bi bi-moon"></i>
                 <span class="ms-2">Dark Mode</span>
               </button>
+            </li>
+            <!-- Editor theme selector -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-palette"></i> <span class="ms-2">Editor Theme</span>
+              </a>
+              <ul class="dropdown-menu" id="editor-theme-select">
+                <li><a class="dropdown-item" href="#">default</a></li>
+                <li><a class="dropdown-item" href="#">darcula</a></li>
+                <li><a class="dropdown-item" href="#">ayu-dark</a></li>
+                <li><a class="dropdown-item" href="#">nord</a></li>
+                <li><a class="dropdown-item" href="#">eclipse</a></li>
+                <li><a class="dropdown-item" href="#">material</a></li>
+                <li><a class="dropdown-item" href="#">material-darker</a></li>
+                <li><a class="dropdown-item" href="#">monokai</a></li>
+              </ul>
             </li>
           </ul>
         </div>

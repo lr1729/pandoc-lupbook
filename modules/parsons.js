@@ -53,7 +53,7 @@ class ParsonsActivity extends LupBookActivity {
         event.dataTransfer.clearData();
         event.dataTransfer.setData("text", event.target.id);
         event.dataTransfer.effectAllowed = "move";
-        event.target.classList.replace("bg-white", "bg-light-subtle");
+        event.target.classList.replace("bg-body", "bg-body-tertiary");
 
         setTimeout(() => {
           /* Placeholders at possible dropping spots. Avoid spots directly
@@ -69,7 +69,7 @@ class ParsonsActivity extends LupBookActivity {
       };
 
       item.ondragend = (event) => {
-        event.target.classList.replace("bg-light-subtle", "bg-white");
+        event.target.classList.replace("bg-body-tertiary", "bg-body");
 
         setTimeout(() => {
           Array.from(

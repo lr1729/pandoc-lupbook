@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$ data-bs-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -111,6 +111,12 @@ $main-toc$
               <button class="btn btn-link nav-link" type="button" data-bs-toggle="modal" data-bs-target="#lbvm-terminal-modal">
                 <i class="bi bi-terminal"></i>
                 <span class="ms-2">Show terminal</span>
+              </button>
+            </li>
+            <li class="nav-item">
+              <button id="theme-toggle" class="btn btn-link nav-link" type="button">
+                <i class="bi bi-moon"></i>
+                <span class="ms-2">Dark Mode</span>
               </button>
             </li>
           </ul>

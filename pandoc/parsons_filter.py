@@ -112,14 +112,14 @@ class LupbookParsons(lupbook_filter.LupbookComponent):
     def _gen_frag_block(self, frag, margin, idx, gid):
         div_attrs = {
             "id": f"{self.prefix_id}-frag-{idx}",
-            "cls": f"parsons-frag bg-white border rounded {margin} p-2 d-flex",
+            "cls": f"parsons-frag bg-body border rounded {margin} p-2 d-flex",
             "data-id": f"{frag['id']}",
             "data-depend": f"{frag.get('depend', '')}",
             "data-gid": f"{gid}",
         }
         with div(**div_attrs):
             if self.conf["label"]:
-                span(idx, cls = "badge text-bg-light fw-medium me-1")
+                span(idx, cls = "badge bg-body-secondary fw-medium me-1")
             text = frag["text"]
             formatted_text = panflute.convert_text(text, output_format="html")
             raw(formatted_text)
@@ -154,7 +154,7 @@ class LupbookParsons(lupbook_filter.LupbookComponent):
                                 color_alt = (color_alt + 1) % 2
                             else:
                                 # Default color for individual frags
-                                bg_color = "bg-white"
+                                bg_color = "bg-body"
 
                             with div(id = f"{self.prefix_id}-frags-{gid}",
                                      cls = f"parsons-frags-group position-relative rounded {bg_color}"):
@@ -170,7 +170,7 @@ class LupbookParsons(lupbook_filter.LupbookComponent):
 
                 with div(cls = "col"):
                     div(id = f"{self.prefix_id}-answers",
-                        cls = "parsons-answers bg-light border h-100 pb-2 d-flex flex-column")
+                        cls = "parsons-answers bg-body border h-100 pb-2 d-flex flex-column")
 
     def _gen_testing_activity(self):
         div(id = f"{self.prefix_id}-testing-score",

@@ -56,7 +56,7 @@ class MatchingActivity extends LupBookActivity {
         event.dataTransfer.clearData();
         event.dataTransfer.setData("text", event.target.id);
         event.dataTransfer.effectAllowed = "move";
-        event.target.classList.replace("bg-white", "bg-light-subtle");
+        event.target.classList.replace("bg-body", "bg-body-tertiary");
 
         setTimeout(() => {
           this.answerBoxes.forEach((box) => {
@@ -66,7 +66,7 @@ class MatchingActivity extends LupBookActivity {
       };
 
       item.ondragend = (event) => {
-        event.target.classList.replace("bg-light-subtle", "bg-white");
+        event.target.classList.replace("bg-body-tertiary", "bg-body");
 
         setTimeout(() => {
           Array.from(
@@ -155,7 +155,7 @@ class MatchingActivity extends LupBookActivity {
     this.choiceItems.forEach((item, idx) => {
       const choiceContainerElt = item.parentNode;
       const feedbackItem = this.feedbackItems[idx];
-      const answerChoices = choiceContainerElt.dataset.choices ? 
+      const answerChoices = choiceContainerElt.dataset.choices ?
         choiceContainerElt.dataset.choices.split(",") : [];
 
       const choiceId = item.id.split("-").pop();

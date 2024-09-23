@@ -26,13 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Function to get the preferred system theme
+  function getPreferredTheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
   // Load global theme preference on page load
   const storedGlobalTheme = localStorage.getItem("globalTheme");
   if (storedGlobalTheme) {
-    setGlobalTheme(storedGlobalTheme);
+    setGlobalTheme(storedGlobalTheme); // Use stored theme if available
   } else {
-    // Default to light mode if no preference is stored
-    setGlobalTheme("light");
+    // Default to system theme if no preference is stored
+    setGlobalTheme(getPreferredTheme());
   }
 
   // Function to apply the editor theme to all CodeMirror instances
@@ -62,12 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setGlobalTheme(newTheme);
     localStorage.setItem("globalTheme", newTheme);
+  });
 
-    // Apply default editor theme based on new global theme if no preference
-    const defaultEditorTheme = newTheme === "dark" ? "darcula" : "default";
-    const storedEditorTheme = localStorage.getItem("editorTheme");
-    if (!storedEditorTheme) {
-      applyEditorTheme(defaultEditorTheme);
+  // Listen for changes in system theme preference
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    // Only update if the user hasn't set an explicit override
+    if (!localStorage.getItem("globalTheme")) {
+      setGlobalTheme(getPreferredTheme());
     }
   });
 
@@ -80,10 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Handle "Reset" option
       if (selectedTheme === "-- reset --") {
         localStorage.removeItem("editorTheme");
-        const currentGlobalTheme = htmlElement.getAttribute("data-bs-theme");
-        const defaultTheme =
-          currentGlobalTheme === "dark" ? "darcula" : "default";
-        applyEditorTheme(defaultTheme);
+        applyEditorTheme(getPreferredTheme()); // Use system theme on reset
       } else {
         applyEditorTheme(selectedTheme);
         localStorage.setItem("editorTheme", selectedTheme);
